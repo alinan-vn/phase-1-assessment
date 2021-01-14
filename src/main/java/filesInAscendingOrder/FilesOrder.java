@@ -6,7 +6,6 @@ import java.util.TreeSet;
 
 public class FilesOrder {
 	final static String FOLDER = "src/storage";
-//	final static String FOLDER = "/";
 	
 	public static void showFilesInAscendingOrder() {
 		System.out.println("++++++++++++++++++++");

@@ -1,6 +1,7 @@
 package initialDisplays;
 
 import filesInAscendingOrder.FilesOrder;
+import fileOperations.FileOperations;
 
 import java.util.Scanner;
 
@@ -38,9 +39,11 @@ public class Welcome {
 				break;
 			case "2":
 				System.out.println("Fetching operations for your command....");
+				FileOperations.showFileOperations();
 				break;
 			case "3":
 				System.out.println("Exiting application....");
+				System.exit(0);
 				break;
 			default:
 				System.out.println("Invalid input, please choose 1, 2, or 3");
