@@ -1,5 +1,7 @@
 package initialDisplays;
 
+import filesInAscendingOrder.FilesOrder;
+
 import java.util.Scanner;
 
 public class Welcome {
@@ -32,7 +34,7 @@ public class Welcome {
 	public static void handleMenuOptions(String input) {
 		switch(input) {
 			case "1":
-				System.out.println("Showing files in ascending order....");
+				FilesOrder.showFilesInAscendingOrder();
 				break;
 			case "2":
 				System.out.println("Fetching operations for your command....");
