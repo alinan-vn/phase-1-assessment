@@ -2,6 +2,7 @@ package fileOperations;
 
 import initialDisplays.Welcome;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
@@ -29,11 +30,12 @@ public class FileOperations {
 	public static void handleFileOperations(String action) {
 		switch(action) {
 			case "1":
-				System.out.println("Accessing Operation...");
+				System.out.println("Accessing 'Add' Operation...");
 				addAFile();
 				break;
 			case "2":
-				System.out.println("Deleting a file");
+				System.out.println("Accessing 'Delete' Operation...");
+				deleteAFile();
 				break;
 			case "3":
 				System.out.println("Searching a file");
@@ -49,8 +51,8 @@ public class FileOperations {
 	}
 	
 	public static void addAFile() throws InvalidPathException {
-		System.out.println("-");
-		System.out.println("=");
+		System.out.println("+");
+		System.out.println("+");
 		System.out.println("+");
 		System.out.println("Please provide a file path, starting from your C:// directory (ex. /example-folder/example-file.txt)");
 		
@@ -79,9 +81,40 @@ public class FileOperations {
 			System.out.println("Unable to copy file to " + newFilePath);
 			System.out.println("IOException error message: " + e);
 		}
-		System.out.println("-");
-		System.out.println("=");
 		System.out.println("+");
+		System.out.println("+");
+		System.out.println("+");
+	}
+	
+	public static void deleteAFile() throws InvalidPathException {
+		System.out.println("-");
+		System.out.println("-");
+		System.out.println("-");
+		System.out.println("Please provide file name within src/storage/ directory to be deleted (ex. file-name.txt");
+		
+		String fileNameInput = scanner.nextLine();
+		Path path = Paths.get(FOLDER + "/" + fileNameInput);
+		
+		if (!Files.exists(path)) {
+			System.out.println("File does not exist, cannot be deleted");
+			return;
+		} else {
+			System.out.println("File found!");
+		}
+		
+		File fileToDelete = new File(FOLDER + "/" + fileNameInput);
+		
+		try {
+			fileToDelete.delete();
+			System.out.println("File successfully deleted!");
+		} catch (Exception e) {
+			System.out.println("Unable to delete file: " + fileNameInput);
+			System.out.println("Exception error message: " + e);
+		}
+		
+		System.out.println("-");
+		System.out.println("-");
+		System.out.println("-");
 	}
 	
 }
