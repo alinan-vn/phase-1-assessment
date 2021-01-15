@@ -21,6 +21,7 @@ public class FileOperations {
 		System.out.println("2. Delete a file");
 		System.out.println("3. Search for a file");
 		System.out.println("4. Back to main menu");
+		System.out.println("5. Close the Application");
 		System.out.println("------++++++============++++++------");
 		
 		String chooseOperation = scanner.nextLine();
@@ -38,12 +39,17 @@ public class FileOperations {
 				deleteAFile();
 				break;
 			case "3":
-				System.out.println("Searching a file");
+				System.out.println("Accessing 'Search' Operation");
+				searchAFile();
 				break;
 			case "4":
 				System.out.println("Getting the Main Menu...");
 				Welcome.mainMenuOptions();
 				break;
+			case "5":
+				System.out.println("Exiting application...");
+				System.exit(0);
+				break;				
 			default:
 				System.out.println("Invalid input, please input a 1, 2, 3, or 4");
 		}
@@ -117,4 +123,25 @@ public class FileOperations {
 		System.out.println("-");
 	}
 	
+	public static void searchAFile() throws InvalidPathException{
+		System.out.println("''");
+		System.out.println("''");
+		System.out.println("''");
+		System.out.println("Please provide a file name (ex. file-name.txt");
+		String fileNameInput = scanner.nextLine();
+		
+		String filePath = FOLDER + "/" + fileNameInput;
+		
+		if(!Files.exists(Paths.get(filePath))) {
+			System.out.println("File not found!");
+			return;
+		} else {
+			System.out.println("File Found! Path: " + filePath);
+		}
+		
+		System.out.println("''");
+		System.out.println("''");
+		System.out.println("''");
+
+	}
 }
