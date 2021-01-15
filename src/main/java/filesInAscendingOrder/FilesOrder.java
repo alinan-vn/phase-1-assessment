@@ -12,7 +12,6 @@ public class FilesOrder {
 		System.out.println("++++++++++++++++++++");
 		System.out.println("Showing files in ascending order....");
 		System.out.println("");
-		System.out.println("");
 		
 		File[] files = new File(FOLDER).listFiles();
 		Set<String> sorted = new TreeSet<>();
@@ -25,7 +24,6 @@ public class FilesOrder {
 		
 		sorted.forEach(System.out::println);
 		
-		System.out.println("");
 		System.out.println("");
 		System.out.println("++++++++++++++++++++");
 		System.out.println("++++++++++++++++++++");
