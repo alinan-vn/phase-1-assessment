@@ -51,7 +51,7 @@ public class FileOperations {
 				System.exit(0);
 				break;				
 			default:
-				System.out.println("Invalid input, please input a 1, 2, 3, or 4");
+				System.out.println("Invalid input, please input a 1, 2, 3, or 4 (No Whitespace)");
 		}
 		showFileOperations();
 	}
@@ -60,7 +60,7 @@ public class FileOperations {
 		System.out.println("+");
 		System.out.println("+");
 		System.out.println("+");
-		System.out.println("Please provide a file path, starting from your C:// directory (ex. /example-folder/example-file.txt)");
+		System.out.println("Please provide a file path, starting from your C:// directory (ex. /example-folder/example-file.txt), exclude the initial 'C://'");
 		
 		String inputFilePath = scanner.nextLine();
 		Path path = Paths.get(inputFilePath);
@@ -96,7 +96,9 @@ public class FileOperations {
 		System.out.println("-");
 		System.out.println("-");
 		System.out.println("-");
-		System.out.println("Please provide file name within src/storage/ directory to be deleted (ex. file-name.txt");
+		System.out.println("Please provide file name within src/storage/ directory to be deleted (ex. file-name.txt)");
+		System.out.println("NOTE** Start with the folder name or file name after src/storage/, do not start with 'src/storage/' or even with '/'");
+		System.out.println("NOTE** Also, exclude any whitespace");
 		
 		String fileNameInput = scanner.nextLine();
 		Path path = Paths.get(FOLDER + "/" + fileNameInput);
@@ -127,7 +129,10 @@ public class FileOperations {
 		System.out.println("''");
 		System.out.println("''");
 		System.out.println("''");
-		System.out.println("Please provide a file name (ex. file-name.txt");
+		System.out.println("Please provide a file name (ex. file-name.txt)");
+		System.out.println("NOTE** Start with the folder name or file name after src/storage/, do not start with 'src/storage/' or even with '/'");
+		System.out.println("NOTE** Also, exclude any whitespace");
+		
 		String fileNameInput = scanner.nextLine();
 		
 		String filePath = FOLDER + "/" + fileNameInput;

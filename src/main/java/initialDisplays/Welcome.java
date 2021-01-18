@@ -46,7 +46,7 @@ public class Welcome {
 				System.exit(0);
 				break;
 			default:
-				System.out.println("Invalid input, please choose 1, 2, or 3");
+				System.out.println("Invalid input, please choose 1, 2, or 3 (Please exclude whitespace)");
 		}
 		mainMenuOptions();
 	}
