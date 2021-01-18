@@ -60,11 +60,17 @@ public class FileOperations {
 		System.out.println("+");
 		System.out.println("+");
 		System.out.println("+");
-		System.out.println("Please provide a file path, starting from your C:// directory (ex. /example-folder/example-file.txt), exclude the initial 'C://'");
+		System.out.println("Please provide a file path, starting from your C:\\ directory (ex. /example-folder/example-file.txt), exclude the initial 'C:\\'");
 		
 		String inputFilePath = scanner.nextLine();
-		Path path = Paths.get(inputFilePath);
-		
+		Path path;
+		try {
+			path = Paths.get(inputFilePath);	
+		} catch (Exception e) {
+			System.out.println("Invalid input");
+			return;
+		}
+
 		if (!Files.exists(path)) {
 			System.out.println("File does not exist..");
 			return;
@@ -101,7 +107,14 @@ public class FileOperations {
 		System.out.println("NOTE** Also, exclude any whitespace");
 		
 		String fileNameInput = scanner.nextLine();
-		Path path = Paths.get(FOLDER + "/" + fileNameInput);
+		Path path;
+		
+		try {
+			path = Paths.get(fileNameInput);	
+		} catch (Exception e) {
+			System.out.println("Invalid input");
+			return;
+		}
 		
 		if (!Files.exists(path)) {
 			System.out.println("File does not exist, cannot be deleted");
@@ -134,10 +147,17 @@ public class FileOperations {
 		System.out.println("NOTE** Also, exclude any whitespace");
 		
 		String fileNameInput = scanner.nextLine();
-		
 		String filePath = FOLDER + "/" + fileNameInput;
+		Path path;
 		
-		if(!Files.exists(Paths.get(filePath))) {
+		try {
+			path = Paths.get(filePath);	
+		} catch (Exception e) {
+			System.out.println("Invalid input");
+			return;
+		}
+		
+		if(!Files.exists(path)) {
 			System.out.println("File not found!");
 			return;
 		} else {
